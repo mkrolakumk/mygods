@@ -64,7 +64,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 group :production do
-  gem 'pg', '0.18.2'
+  gem 'pg', '1.0.0'
   gem 'rails_12factor', '0.0.3'
 end
 gem 'bootstrap-sass', '~> 3.3.6'
