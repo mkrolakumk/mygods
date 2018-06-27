@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="sitename" style="float: left; margin-left: 25px">
+      <h3> Twoje Psy</h3>
+    </div>
+    <div class="container-fluid">
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Dodaj psa", new_dog_path %></li>
+          <li><%= link_to "Edytuj profil", edit_user_registration_path %></li>
+          <li><%= link_to "Wyloguj się", destroy_user_session_path, method: :delete %></li>
+
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+</nav>
+</div>
+<div class="container">
+<div class="jumbotron" style="background-color: white; border: 0px" >
+<div class="container-fluid">
+  <div class="row">
+    <% @dogs.each do |dog| %>
+    <div class="d-flex flex-row bd-highlight mb-2" style="text-align: center" >
+      <div class="col-xs-6 col-md-3" style="background-color: #EFEFEF ;  margin:5px; height: 310px; padding: 15px; border-radius: 15px; margin-left: 5%" >
+
+            <%= image_tag dog.image.url(:thumb), style:'width: 100%;  height:180px; overflow:hidden; border-radius:15px' %>
+
+        <div class="caption">
+         <h2><%= dog.name %><h2>
+        </div>
+            <%= link_to 'Pokaż', dog, class: 'btn btn-primary'  %>
+            <%= link_to 'Edytuj', edit_dog_path(dog), class: 'btn btn-default'  %>
+            <%= link_to 'Usuń', dog, method: :delete, data: { confirm: 'Napewno chcesz usunąć?' }, class: 'btn btn-danger'  %>
+      </div>
+     </div>
+    <% end %>
+   </div>
+
+  </div>
+</div>
+</div>
+
+

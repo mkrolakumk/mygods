@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="sitename" style="float: left; margin-left: 25px">
+      <h3> Edytujesz informacje o psie:  <%= @dog.name %></h3>
+    </div>
+    <div class="container-fluid">
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Dodaj psa", new_dog_path %></li>
+        <li><%= link_to "Edytuj profil", edit_user_registration_path %></li>
+        <li><%= link_to "Wyloguj się", destroy_user_session_path, method: :delete %></li>
+
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+
+<%= render 'form', dog: @dog %>
+
+

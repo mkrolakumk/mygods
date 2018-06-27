@@ -1,0 +1,55 @@
+<%= form_for dog, html: { multipart: true } do |f| %>
+<%= form_with(model: dog, local: true) do |form| %>
+
+  <% if dog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
+
+      <ul>
+      <% dog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container" style="width: 30%; margin-left: auto; margin-right: auto">
+  <div class="panel panel-default devise-bs">
+  <div class="panel-heading">
+    Imię<br/>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="panel-heading">
+    Płeć<br/>
+    <%= form.text_field :sex %>
+  </div>
+
+  <div class="panel-heading">
+    Rasa psa<br/>
+    <%= form.text_field :breed_of_dog %>
+  </div>
+
+  <div class="panel-heading">
+    Data narodzin<br/>
+    <%= form.date_select :birthday %>
+  </div>
+
+  <div class="panel-heading">
+    Opis<br/>
+    <%= form.text_area :description %>
+  </div>
+    <div class="panel-heading">
+      <%= f.label :image, "Obraz" %><br/>
+      <%= f.file_field :image, class: "form-control"%>
+    </div>
+
+  <div class="actions">
+    <%= link_to 'Powrót', dogs_path, class: 'btn btn-default', style:'float:right;margin:25px' %>
+    <%= form.submit 'Zapisz', class:'btn btn-success', style:'float:right;margin:25px' %>
+
+<% end %>
+<% end %>
+</div>
+</div>
+</div>
+</div>
